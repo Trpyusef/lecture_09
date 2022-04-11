@@ -16,6 +16,8 @@ def read_data(file_name, field):
         data = json.load(json_file)
         if field in set(data.keys()):
             return data[field]
+
+
 def linear_search(sequence, wanted_number):
     positions = []
     count = 0
@@ -29,6 +31,14 @@ def linear_search(sequence, wanted_number):
     return output
 
 
+def pattern_search(sequence, wanted_vzor):
+    wanted_indexes = []
+    for index in range(len(sequence) - len(wanted_vzor)):
+        if sequence[index:index+ len(wanted_vzor)] == wanted_vzor:
+            wanted_indexes.append(index)
+    return wanted_indexes
+
+
 
 
 def main():
@@ -37,5 +47,6 @@ def main():
     wanted_number = 2
     linear_search(unordered_numbers, wanted_number)
     print(linear_search(unordered_numbers, wanted_number))
+    print(pattern_search(read_data("sequential.json", "dna_sequence"), "AA"))
 if __name__ == '__main__':
     main()

@@ -44,6 +44,18 @@ def pattern_search(sequence, wanted_vzor):
             wanted_indexes.add(index)
     return wanted_indexes
 
+def binary_search(sequence, wanted_number):
+    middle_index = (len(sequence)-1)/2
+    left_margain = sequence[0]
+    right_margain = sequence[-1]
+    wanted_index = 0
+    same = False
+    while True:
+        if number[middle_index] == wanted_number:
+            wanted_index = wanted_index + middle_index
+        elif number[middle_index] < wanted_number:
+            left_margain = sequence[middle_index + 1]
+
 
 
 
@@ -54,5 +66,6 @@ def main():
     linear_search(unordered_numbers, wanted_number)
     print(linear_search(unordered_numbers, wanted_number))
     print(pattern_search(read_data("sequential.json", "dna_sequence"), "AA"))
+    print(binary_search(read_data("sequential.json", "ordered_numbers"), 47))
 if __name__ == '__main__':
     main()

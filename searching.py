@@ -32,7 +32,7 @@ def linear_search(sequence, wanted_number):
 
 
 def pattern_search(sequence, wanted_vzor):
-    wanted_indexes = []
+    wanted_indexes = set()
     for index in range(len(sequence) - len(wanted_vzor)):
         subsequence = sequence[index:(index + len(wanted_vzor))]
         same = True
@@ -41,7 +41,7 @@ def pattern_search(sequence, wanted_vzor):
                 same = False
                 break
         if same:
-            wanted_indexes.append(index)
+            wanted_indexes.add(index)
     return wanted_indexes
 
 
